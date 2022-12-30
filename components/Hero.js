@@ -111,17 +111,17 @@ export default function Hero() {
       <div className={classes.inner}>
         <HeaderMiddle />
         <Title className={classes.title}>
-          Automated AI code reviews for{" "}
+          Start your legal journey with{" "}
           <Text component='span' inherit className={classes.highlight}>
-            any stack
+            US
           </Text>
         </Title>
 
         <Container size={640}>
           <Text size='lg' className={classes.description}>
-            Build more reliable software with AI companion. AI is also trained
-            to detect lazy developers who do nothing and just complain on
-            Twitter.
+            We are dedicated to provide effortless legal solutions for your
+            personal problems.With over 20 years of Experience in Family law we
+            provide swift justice with ease.
           </Text>
         </Container>
 
