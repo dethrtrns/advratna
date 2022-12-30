@@ -53,7 +53,7 @@ export default function Home() {
           <Container
             p={0}
             // sx={{ transition: "all 2s linear" }}
-          ><h1>Ratna</h1>
+          >
             <Hero />
             <Features />
             <FAQ />
