@@ -55,7 +55,6 @@ export default function Home() {
             // sx={{ transition: "all 2s linear" }}
           >
             <Hero />
-            PULL puLL
             <Features />
             <FAQ />
             <ContactUs />
