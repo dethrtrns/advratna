@@ -9,7 +9,6 @@ import {
   MantineProvider,
   TextInput,
 } from "@mantine/core";
-import ShaCard from "../components/shaCard";
 import Header from "../components/Header";
 import HeaderMiddle from "../components/Header";
 import Hero from "../components/Hero";
@@ -75,7 +74,6 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          <ShaCard />
         </Box>
       </Box> */}
           {/* <TextInput placeholder='Your name' label='Full name' withAsterisk /> */}
