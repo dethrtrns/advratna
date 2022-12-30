@@ -127,13 +127,13 @@ export default function Hero() {
 
         <div className={classes.controls}>
           <Button className={classes.control} variant='white' size='lg'>
-            Get started
+            About Us
           </Button>
           <Button
             className={cx(classes.control, classes.secondaryControl)}
             size='lg'
           >
-            Live demo
+            Contact Us
           </Button>
         </div>
       </div>
