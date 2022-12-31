@@ -72,10 +72,27 @@ function ContactIcon({
 }
 
 const MOCKDATA = [
-  { title: "Email", description: "hello@mantine.dev", icon: IconAt },
-  { title: "Phone", description: "+49 (800) 335 35 35", icon: IconPhone },
-  { title: "Address", description: "844 Morris Park avenue", icon: IconMapPin },
-  { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
+  {
+    title: "Email",
+    description: "ratnojasinghrathore141270@gmail.com",
+    icon: IconAt,
+  },
+  {
+    title: "Phone",
+    description: "+91 9450018830, 8960419918 ",
+    icon: IconPhone,
+  },
+  {
+    title: "Address",
+    description:
+      "H.No-33, Shivlok Colony Nijampur Malhaur Lucknow, UTTAR PRADESH 226010, India",
+    icon: IconMapPin,
+  },
+  {
+    title: "Office hours",
+    description: "06:00 p.m. – 09:00 p.m.",
+    icon: IconSun,
+  },
 ];
 
 export function ContactIconsList({ data = MOCKDATA, variant }) {

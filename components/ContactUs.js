@@ -111,7 +111,7 @@ export default function ContactUs() {
         <div>
           <Title className={classes.title}>Contact us</Title>
           <Text className={classes.description} mt='sm' mb={30}>
-            Leave your email and we will get back to you within 24 hours
+            subtext{" "}
           </Text>
 
           <ContactIconsList variant='white' />
@@ -121,7 +121,7 @@ export default function ContactUs() {
         <div className={classes.form}>
           <TextInput
             label='Email'
-            placeholder='your@email.com'
+            placeholder='abc@gmail.com'
             required
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />

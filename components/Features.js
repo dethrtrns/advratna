@@ -8,23 +8,23 @@ import {
   SimpleGrid,
   Container,
 } from "@mantine/core";
-import { IconGauge, IconUser, IconCookie } from "@tabler/icons";
+import { IconGauge, IconUser, IconCookie, IconGavel } from "@tabler/icons";
 
 const mockdata = [
   {
-    title: "Extreme performance",
+    title: "Divorce Matters",
     description:
       "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
-    icon: IconGauge,
+    icon: IconGavel,
   },
   {
-    title: "Privacy focused",
+    title: "Family Disputes",
     description:
       "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
     icon: IconUser,
   },
   {
-    title: "No third parties",
+    title: "Mediation & Settlements",
     description:
       "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
     icon: IconCookie,
@@ -97,12 +97,12 @@ export default function Features() {
     <Container size='lg' py='xl'>
       <Group position='center'>
         <Badge variant='filled' size='lg'>
-          Best company ever
+          Our Services
         </Badge>
       </Group>
 
       <Title order={2} className={classes.title} align='center' mt='sm'>
-        Integrate effortlessly with any technology stack
+        We provide legal counsel in a wide variety of Family cases
       </Title>
 
       <Text
@@ -111,8 +111,8 @@ export default function Features() {
         align='center'
         mt='md'
       >
-        Every once in a while, you’ll see a Golbat that’s missing some fangs.
-        This happens when hunger drives it to try biting a Steel-type Pokémon.
+        We'll do our best to resolve your pain, Inside & Outside of the
+        courtroom, in the least time consuming & hassle-free way possible!
       </Text>
 
       <SimpleGrid
