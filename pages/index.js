@@ -50,6 +50,10 @@ export default function Home() {
               name='viewport'
               content='width=device-width, initial-scale=1'
             />
+            <meta
+              name='google-site-verification'
+              content='szGiVp6Z2JcQxFGlQHmmcYAWwIiL2bbwj21kZ42uZR8'
+            />
             <link rel='icon' href='/favicon.ico' />
           </Head>
           {/* <HeaderMiddle /> */}
