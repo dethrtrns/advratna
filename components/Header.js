@@ -9,27 +9,35 @@ import {
   Text,
   useMantineTheme,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useScrollIntoView } from "@mantine/hooks";
 import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
+  IconBrandFacebook,
+  IconBrandGoogle,
+  IconCircleLetterJ,
 } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
+// import { MantineLogo } from "@mantine/ds";
 import { ThemeSwitch } from "./ThemeSwitch";
+import { Html } from "next/document";
 
 const links = [
   {
-    link: "/about",
+    link: "home",
     label: "Home",
   },
   {
-    link: "/learn",
-    label: "Features",
+    link: "about",
+    label: "About Us",
   },
   {
-    link: "/pricing",
-    label: "Pricing",
+    link: "faq",
+    label: "FAQ",
+  },
+  {
+    link: "contact",
+    label: "Contact Us",
   },
 ];
 
@@ -40,15 +48,15 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     height: 56,
 
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("xs")]: {
       justifyContent: "flex-start",
     },
   },
 
   links: {
-    width: 260,
+    // width: 260,
 
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("xs")]: {
       display: "none",
     },
   },
@@ -69,7 +77,7 @@ const useStyles = createStyles((theme) => ({
   burger: {
     marginRight: theme.spacing.md,
 
-    [theme.fn.largerThan("sm")]: {
+    [theme.fn.largerThan("xs")]: {
       display: "none",
     },
   },
@@ -82,16 +90,14 @@ const useStyles = createStyles((theme) => ({
     textDecoration: "none",
     color:
       theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
+        ? theme.colors.gray[0]
+        : theme.colors.dark[9],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
     "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+      opacity: 0.2,
+      backgroundColor: theme.primaryColor,
     },
   },
 
@@ -122,6 +128,11 @@ export default function HeaderMiddle() {
       })}
       onClick={(event) => {
         event.preventDefault();
+        document.getElementById(link.link).scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "start",
+        });
         setActive(link.link);
       }}
     >
@@ -144,18 +155,28 @@ export default function HeaderMiddle() {
           {items}
         </Group>
 
-        <Text variant='text' color={theme.primaryColor} component='h1'>
-          Ratna Associates
+        <Text
+          variant='gradient'
+          size={18}
+          color={theme.primaryColor}
+          component='h1'
+        >
+          Advocate Ratna Singh
         </Text>
         {/* <MantineLogo size={28}></MantineLogo> */}
 
         <Group spacing={0} className={classes.social} position='right' noWrap>
           <ActionIcon
+            component='a'
+            target='_blank'
+            href='https://www.google.com/search?q=ratna+singh+advocate+lucknow&rlz=1C1CHBF_enIN964IN964&sxsrf=ALiCzsZdt26cu0MGYF7TQ5OxAp6vePAYSg%3A1672578124867&ei=TISxY92yNNSMseMPpOqGqA8&ved=0ahUKEwjdiPeHt6b8AhVURmwGHSS1AfUQ4dUDCBA&uact=5&oq=ratna+singh+advocate+lucknow&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzoHCCMQsAMQJzoOCC4QgAQQxwEQrwEQsAM6CAgAEIYDELADOgYIABAWEB46BQgAEIYDOgUIIRCgAUoECEEYAUoECEYYAFC7BFiALWD_Q2gCcAB4AIABrAGIAYkKkgEDMC45mAEAoAEByAEHwAEB&sclient=gws-wiz-serp'
+            // 'https://www.google.com/search?q=ratna+singh+advocate&rlz=1C1CHBF_enIN964IN964&oq=ratna+singh+advocate&aqs=chrome..69i57j0i390.6271j0j7&sourceid=chrome&ie=UTF-8'
             color={theme.primaryColor}
             className={classes.iconBack}
             size='lg'
           >
-            <IconBrandTwitter
+            <IconBrandInstagram
+              // href='https://www.google.com/search?q=ratna+singh+advocate&rlz=1C1CHBF_enIN964IN964&oq=ratna+singh+advocate&aqs=chrome..69i57j0i390.6271j0j7&sourceid=chrome&ie=UTF-8'
               size={18}
               color={
                 theme.colorScheme === "dark"
@@ -166,11 +187,14 @@ export default function HeaderMiddle() {
             />
           </ActionIcon>
           <ActionIcon
+            component='a'
+            target='_blank'
+            href='https://www.facebook.com/ratnoja.singh.rathore/'
             color={theme.primaryColor}
             className={classes.iconBack}
             size='lg'
           >
-            <IconBrandYoutube
+            <IconBrandFacebook
               size={18}
               color={
                 theme.colorScheme === "dark"
@@ -180,8 +204,14 @@ export default function HeaderMiddle() {
               stroke={2}
             />
           </ActionIcon>
-          <ActionIcon color={theme.primaryColor} size='lg'>
-            <IconBrandInstagram
+          <ActionIcon
+            component='a'
+            target='_blank'
+            href='https://www.justdial.com/Lucknow/Ratna-Singh-Advocate-Near-Malhaur-Station-Gomti-Nagar/0522PX522-X522-140413062127-G5N1_BZDET'
+            color={theme.primaryColor}
+            size='lg'
+          >
+            <IconCircleLetterJ
               size={18}
               color={
                 theme.colorScheme === "dark"

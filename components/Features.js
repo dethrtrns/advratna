@@ -94,7 +94,7 @@ export default function Features() {
     </Card>
   ));
   return (
-    <Container size='lg' py='xl'>
+    <Container id='about' size='lg' py='xl'>
       <Group position='center'>
         <Badge variant='filled' size='lg'>
           Our Services

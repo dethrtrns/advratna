@@ -105,7 +105,7 @@ export default function Hero() {
   const { classes, cx } = useStyles();
 
   return (
-    <div className={classes.wrapper}>
+    <div id='home' className={classes.wrapper}>
       <Overlay color='#000' opacity={0.65} zIndex={1} />
 
       <div className={classes.inner}>
@@ -113,7 +113,7 @@ export default function Hero() {
         <Title className={classes.title}>
           Start your legal journey with{" "}
           <Text component='span' inherit className={classes.highlight}>
-            US
+            Ratna Associates
           </Text>
         </Title>
 
@@ -126,12 +126,32 @@ export default function Hero() {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} variant='white' size='lg'>
+          <Button
+            className={classes.control}
+            variant='white'
+            size='lg'
+            onClick={(event) => {
+              // event.preventDefault();
+              document.getElementById("about").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "start",
+              });
+            }}
+          >
             About Us
           </Button>
           <Button
             className={cx(classes.control, classes.secondaryControl)}
             size='lg'
+            onClick={(event) => {
+              // event.preventDefault();
+              document.getElementById("contact").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "start",
+              });
+            }}
           >
             Contact Us
           </Button>

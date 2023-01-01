@@ -99,7 +99,7 @@ export default function ContactUs() {
   ));
 
   return (
-    <div className={classes.wrapper}>
+    <div id='contact' className={classes.wrapper}>
       <SimpleGrid
         cols={2}
         sx={{

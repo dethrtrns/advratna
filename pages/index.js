@@ -15,7 +15,7 @@ import Hero from "../components/Hero";
 import Features from "../components/Features";
 import ContactUs from "../components/ContactUs";
 import { Footer } from "../components/Footer";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FAQ } from "../components/FAQ";
 // import styles from '../styles/Home.module.css'
 
@@ -23,6 +23,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [colorScheme, setColorScheme] = useState("light");
+  // const ref = useRef(null);
   const toggleColorScheme = (value) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   return (
