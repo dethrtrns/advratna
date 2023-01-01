@@ -17,9 +17,19 @@ import ContactUs from "../components/ContactUs";
 import { Footer } from "../components/Footer";
 import { useRef, useState } from "react";
 import { FAQ } from "../components/FAQ";
+import QuoteBlock from "../components/QuoteBlock";
+import Subgrid from "../components/Subgrid";
+import ScrollTop from "../components/ScrollTop";
 // import styles from '../styles/Home.module.css'
 
 const inter = Inter({ subsets: ["latin"] });
+const dummy_comment = [
+  {
+    userName: "Raj Shekhar Singh",
+    comment:
+      "this is the best legal advisor i ever got in touch with! i did not even needed to see a judge, we went through a smooth mediation process and very efficient councelling by Ratna ma'am herself.",
+  },
+];
 
 export default function Home() {
   const [colorScheme, setColorScheme] = useState("light");
@@ -64,8 +74,15 @@ export default function Home() {
           >
             <Hero />
             <Features />
+            {/* <Subgrid> */}
+            {/* <QuoteBlock
+              quote={dummy_comment[0].comment}
+              author={dummy_comment[0].userName}
+            /> */}
+            {/* </Subgrid> */}
             <FAQ />
             <ContactUs />
+            <ScrollTop />
             <Footer />
           </Container>
 
