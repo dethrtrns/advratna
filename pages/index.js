@@ -51,6 +51,7 @@ export default function Home() {
           </Head>
           {/* <HeaderMiddle /> */}
           <Container
+            fluid
             p={0}
             // sx={{ transition: "all 2s linear" }}
           >
