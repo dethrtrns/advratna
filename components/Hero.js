@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: 180,
     paddingBottom: 130,
     backgroundImage:
-      "url(https://media.istockphoto.com/id/1136594579/photo/justice-system-in-india.jpg?s=1024x1024&w=is&k=20&c=ECWKapZo27kuvU-C1jWsw-yk89pU1psRQEgpqU1M61g=)",
+      "url(https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGxlZ2FsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60)",
     backgroundSize: "cover",
     backgroundColor: theme.primaryColor,
     backgroundBlendMode: "luminosity",

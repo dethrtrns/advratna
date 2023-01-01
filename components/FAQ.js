@@ -55,37 +55,82 @@ export function FAQ() {
             >
               <Accordion.Item className={classes.item} value='reset-password'>
                 <Accordion.Control>
-                  How can I reset my password?
+                  Why should I try settlement through mediation?
                 </Accordion.Control>
                 <Accordion.Panel>{placeholder}</Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value='another-account'>
                 <Accordion.Control>
-                  Can I create more that one account?
+                  What to do when my spouse is Not willing to give divorce?
                 </Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Panel>
+                  If the matter is not resolved amicably and mutual consent is
+                  not reached, firstly file a claim under S. 125 of CrPC for
+                  maintenance. After that you can file for a contested divorce
+                  on the grounds of cruelty under S. 13 (1) of the Hindu
+                  Marriage Act, 1955.
+                </Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value='newsletter'>
                 <Accordion.Control>
-                  How can I subscribe to monthly newsletter?
+                  What are the steps involved in Mutually agreed Divorce?
                 </Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Panel>
+                  First, Both spouses must have lived apart for at least six
+                  months.
+                  <br></br>
+                  Step 1: Drafting and Filing Petition (submitting divorce
+                  application)
+                  <br></br>
+                  Step 2: Issuing Summons ( Court Notice)
+                  <br></br>
+                  Step 3: Response (to Court Notice)
+                  <br></br>
+                  Step 4: Trial at Court
+                  <br></br>
+                  Step 5: Argument
+                  <br></br>
+                  Step 6 : Final Order(Divorce completion)
+                </Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value='credit-card'>
                 <Accordion.Control>
-                  Do you store credit card information securely?
+                  Who gets the child's custody after divorce?
                 </Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Panel>
+                  There are various types of custodies granted to parents, which
+                  can include the following: <br></br> a) Physical custody: This
+                  implies that one of the parents acts as a primary guardian and
+                  the child stays with him, while the other parent is granted
+                  visitation rights and can meet and spend time with the child.{" "}
+                  <br></br>
+                  b) Joint custody: Here both the parents get the child’s
+                  custody in rotation. This implies that the child stays with
+                  each parent for a fixed duration.<br></br> c) Legal custody:
+                  This means that one or both the parents get the right to take
+                  all major life decisions for the child, including those for
+                  his education, finances, religious preferences or medical
+                  needs, till he turns 18. <br></br> d) Sole custody: If one
+                  parent is considered unfit to take care of the child, the
+                  other parent is given full custody of the child.
+                </Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value='payment'>
                 <Accordion.Control>
-                  What payment systems to you work with?
+                  How long do I have to wait after the marriage to file for
+                  divorce?
                 </Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Panel>
+                  You can file for divorce only after completion of 1 year of
+                  marriage based on the grounds given under the Hindu Marriage
+                  Act. If your marriage is less than 1 year old, then you can
+                  try to apply for an annulment based on special reasons like:{" "}
+                  <br></br> Adultery, Cruelty, Desertion, Mental Disorder, etc.
+                </Accordion.Panel>
               </Accordion.Item>
             </Accordion>
           </Col>

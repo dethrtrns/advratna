@@ -14,19 +14,19 @@ const mockdata = [
   {
     title: "Divorce Matters",
     description:
-      "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
+      "Divorce is still considered to be one of the most painful and traumatic experiences for a married couple.It would create a mess if the procedure is not known properly and can get extremely outrageous and can also be time-consuming. Our 15 years of pratice in family law, helps to provide the proper guidance that you need throughout the entire complicated process in the most easiest and hassle-free way.",
     icon: IconGavel,
   },
   {
     title: "Family Disputes",
     description:
-      "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
+      "Family conflict refers to active opposition between family members. Because of the nature of family relationships, it can take a wide variety of forms, including verbal, physical, sexual, financial, or psychological.",
     icon: IconUser,
   },
   {
     title: "Mediation & Settlements",
     description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
+      "Mediation is an informal, but structured settlement procedure. A mediator is employed to facilitate and assist parties in reaching an amicable dispute settlement. Mediation is generally much less costly and time-consuming than litigating a divorce case in court. ",
     icon: IconCookie,
   },
 ];
@@ -111,8 +111,8 @@ export default function Features() {
         align='center'
         mt='md'
       >
-        We'll do our best to resolve your pain, Inside & Outside of the
-        courtroom, in the least time consuming & hassle-free way possible!
+        We'll do our best to resolve your pain, Inside & Out of the courtroom,
+        in the least time consuming & hassle-free way possible!
       </Text>
 
       <SimpleGrid
