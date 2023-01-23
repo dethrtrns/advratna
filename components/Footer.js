@@ -24,7 +24,7 @@ const useStyles = createStyles((theme) => ({
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
-    transition: "all 2s linear",
+    transition: "all 0.5s ease-in",
   },
 
   logo: {
@@ -149,11 +149,11 @@ const data = [
         link: "#",
       },
       {
-        label: "Changelog",
+        label: "Blogs",
         link: "#",
       },
       {
-        label: "Releases",
+        label: "Latest updates",
         link: "#",
       },
     ],
@@ -162,11 +162,11 @@ const data = [
     title: "Community",
     links: [
       {
-        label: "Join Discord",
+        label: "Follow on Instagram",
         link: "#",
       },
       {
-        label: "Follow on Twitter",
+        label: "Follow on Facebook",
         link: "#",
       },
       {
@@ -174,7 +174,7 @@ const data = [
         link: "#",
       },
       {
-        label: "GitHub discussions",
+        label: "Check us on JustDial",
         link: "#",
       },
     ],
@@ -209,16 +209,23 @@ export function Footer() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <MantineLogo size={30} />
+          <Text
+            variant='gradient'
+            size={18}
+            // color={theme.primaryColor}
+            component='h1'
+          >
+            Ratna Associates
+          </Text>
           <Text size='xs' color='dimmed' className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+            connect with our world class counselors for any legal service.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color='dimmed' size='sm'>
-          © 2020 mantine.dev. All rights reserved.
+          © 2002 ratna associates All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position='right' noWrap>

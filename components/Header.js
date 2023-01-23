@@ -51,6 +51,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("xs")]: {
       justifyContent: "flex-start",
     },
+    transition: "all 0.5s linear",
   },
 
   links: {

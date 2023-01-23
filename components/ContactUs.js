@@ -8,11 +8,14 @@ import {
   Button,
   Group,
   ActionIcon,
+  NumberInput,
+  Alert,
 } from "@mantine/core";
 import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
+  IconAlertCircle,
 } from "@tabler/icons";
 import { ContactIconsList } from "../utils/ContactIcons";
 
@@ -27,6 +30,7 @@ const useStyles = createStyles((theme) => ({
     } 0%, ${theme.colors[theme.primaryColor][6]} 80%)`,
     borderRadius: theme.radius.md,
     padding: theme.spacing.xl * 2.5,
+    transition: "all 0.5s linear",
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       padding: theme.spacing.xl * 1.5,
@@ -111,7 +115,7 @@ export default function ContactUs() {
         <div>
           <Title className={classes.title}>Contact us</Title>
           <Text className={classes.description} mt='sm' mb={30}>
-            subtext{" "}
+            We're available 24*7 at your service.
           </Text>
 
           <ContactIconsList variant='white' />
@@ -119,22 +123,42 @@ export default function ContactUs() {
           <Group mt='xl'>{icons}</Group>
         </div>
         <div className={classes.form}>
+          <Alert
+            variant='filled'
+            icon={<IconAlertCircle size={16} />}
+            title='note'
+            color='teal'
+          >
+            We never share your information(personal or otherwise) without your
+            consent.
+          </Alert>
           <TextInput
             label='Email'
-            placeholder='abc@gmail.com'
+            description='required'
+            placeholder='Type your email address here...'
             required
+            classNames={{ input: classes.input, label: classes.inputLabel }}
+          />
+          <NumberInput
+            label='Phone'
+            placeholder='Type your contact number here...'
+            description='required'
+            required
+            hideControls
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />
           <TextInput
             label='Name'
-            placeholder='John Doe'
+            description='optional(to get in touch anonymously)'
+            placeholder='Enter your name here if you are comfortable...'
             mt='md'
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />
           <Textarea
             required
             label='Your message'
-            placeholder='I want to order your goods'
+            description='required'
+            placeholder='Start Typing your message here...'
             minRows={4}
             mt='md'
             classNames={{ input: classes.input, label: classes.inputLabel }}

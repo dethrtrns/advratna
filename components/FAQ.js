@@ -13,6 +13,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
+    transition: "all 0.5s linear",
   },
 
   title: {
@@ -20,6 +21,7 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.md,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    transition: "all 0.5s linear",
   },
 
   item: {

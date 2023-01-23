@@ -25,6 +25,7 @@ const useStyles = createStyles((theme) => ({
       paddingTop: 80,
       paddingBottom: 50,
     },
+    transition: "all 0.5s linear",
   },
 
   inner: {

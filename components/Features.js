@@ -60,6 +60,7 @@ const useStyles = createStyles((theme) => ({
     border: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1]
     }`,
+    transition: "all 0.5s linear",
   },
 
   cardTitle: {
@@ -94,7 +95,14 @@ export default function Features() {
     </Card>
   ));
   return (
-    <Container id='about' size='lg' py='xl'>
+    <Container
+      sx={{
+        transition: "all 0.4s linear",
+      }}
+      id='about'
+      size='lg'
+      py='xl'
+    >
       <Group position='center'>
         <Badge variant='filled' size='lg'>
           Our Services

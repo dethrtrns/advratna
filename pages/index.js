@@ -67,11 +67,7 @@ export default function Home() {
             <link rel='icon' href='/favicon.ico' />
           </Head>
           {/* <HeaderMiddle /> */}
-          <Container
-            fluid
-            p={0}
-            // sx={{ transition: "all 2s linear" }}
-          >
+          <Container fluid p={0} sx={{ transition: "all 0.6s linear" }}>
             <Hero />
             <Features />
             {/* <Subgrid> */}
