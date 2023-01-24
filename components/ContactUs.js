@@ -10,13 +10,16 @@ import {
   ActionIcon,
   NumberInput,
   Alert,
+  Progress,
 } from "@mantine/core";
 import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
   IconAlertCircle,
+  IconSend,
 } from "@tabler/icons";
+import { useState } from "react";
 import { ContactIconsList } from "../utils/ContactIcons";
 
 const useStyles = createStyles((theme) => ({
@@ -90,6 +93,15 @@ const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 
 export default function ContactUs() {
   const { classes } = useStyles();
+  const [loading, setLoading] = useState(false);
+
+  const submitForm = () => {
+    setLoading(true);
+    //call Database
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  };
 
   const icons = social.map((Icon, index) => (
     <ActionIcon
@@ -164,8 +176,30 @@ export default function ContactUs() {
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />
 
+          {loading && (
+            <Progress
+              radius='xl'
+              size='sm'
+              color={"violet"}
+              value={100}
+              striped
+              animate
+            />
+          )}
           <Group position='right' mt='md'>
-            <Button className={classes.control}>Send message</Button>
+            <Button
+              // type='reset'
+              variant='gradient'
+              loading={loading}
+              loaderProps={{ variant: "dots" }}
+              // loaderPosition='center'
+              compact={loading}
+              onClick={submitForm}
+              leftIcon={<IconSend size={14} />}
+              className={classes.control}
+            >
+              Send message
+            </Button>
           </Group>
         </div>
       </SimpleGrid>
