@@ -11,14 +11,19 @@ import {
   NumberInput,
   Alert,
   Progress,
+  Notification,
 } from "@mantine/core";
+import { joiResolver, useForm } from "@mantine/form";
 import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
   IconAlertCircle,
   IconSend,
+  IconCheck,
 } from "@tabler/icons";
+import Joi from "joi";
+// import { IconCheck } from "@tabler/icons/icons-react";
 import { useState } from "react";
 import { ContactIconsList } from "../utils/ContactIcons";
 
@@ -91,16 +96,50 @@ const useStyles = createStyles((theme) => ({
 
 const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 
+const schema = Joi.object({
+  email: Joi.string()
+    .email({ tlds: { allow: false } })
+    .message("Invalid email")
+    .required(),
+  phone: Joi.number()
+    .min(1000000000)
+    .message("Invalid phone number(less than 10 digits)")
+    .required(),
+  name: Joi.allow(),
+  message: Joi.string()
+    .min(20)
+    .message("too short!")
+    .max(500)
+    .message("keep the message brief between 20 to 500 characters")
+    .required(),
+});
+
 export default function ContactUs() {
   const { classes } = useStyles();
   const [loading, setLoading] = useState(false);
+  const [notify, setNotify] = useState(false);
+  const form = useForm({
+    validateInputOnChange: true,
+    validate: joiResolver(schema),
+    initialValues: {
+      email: "",
+      phone: undefined,
+      name: "",
+      message: "",
+    },
+  });
 
-  const submitForm = () => {
+  const submitForm = (v) => {
     setLoading(true);
+    setNotify(true);
     //call Database
     setTimeout(() => {
       setLoading(false);
+      form.reset();
     }, 1500);
+    setTimeout(() => {
+      setNotify(false);
+    }, 4500);
   };
 
   const icons = social.map((Icon, index) => (
@@ -135,72 +174,96 @@ export default function ContactUs() {
           <Group mt='xl'>{icons}</Group>
         </div>
         <div className={classes.form}>
-          <Alert
-            variant='filled'
-            icon={<IconAlertCircle size={16} />}
-            title='note'
-            color='teal'
+          <form
+            onSubmit={form.onSubmit((values) => {
+              console.log(values);
+              // form.reset;
+              submitForm(values);
+            })}
           >
-            We never share your information(personal or otherwise) without your
-            consent.
-          </Alert>
-          <TextInput
-            label='Email'
-            description='required'
-            placeholder='Type your email address here...'
-            required
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
-          <NumberInput
-            label='Phone'
-            placeholder='Type your contact number here...'
-            description='required'
-            required
-            hideControls
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
-          <TextInput
-            label='Name'
-            description='optional(to get in touch anonymously)'
-            placeholder='Enter your name here if you are comfortable...'
-            mt='md'
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
-          <Textarea
-            required
-            label='Your message'
-            description='required'
-            placeholder='Start Typing your message here...'
-            minRows={4}
-            mt='md'
-            classNames={{ input: classes.input, label: classes.inputLabel }}
-          />
-
-          {loading && (
-            <Progress
-              radius='xl'
-              size='sm'
-              color={"violet"}
-              value={100}
-              striped
-              animate
-            />
-          )}
-          <Group position='right' mt='md'>
-            <Button
-              // type='reset'
-              variant='gradient'
-              loading={loading}
-              loaderProps={{ variant: "dots" }}
-              // loaderPosition='center'
-              compact={loading}
-              onClick={submitForm}
-              leftIcon={<IconSend size={14} />}
-              className={classes.control}
+            <Alert
+              variant='filled'
+              icon={<IconAlertCircle size={16} />}
+              title='note'
+              color='teal'
             >
-              Send message
-            </Button>
-          </Group>
+              We never share your information(personal or otherwise) without
+              your consent.
+            </Alert>
+            <TextInput
+              label='Email'
+              description='required'
+              placeholder='Type your email address here...'
+              required
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+              {...form.getInputProps("email")}
+            />
+            <NumberInput
+              label='Phone'
+              placeholder='Type your contact number here...'
+              description='required'
+              required
+              hideControls
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+              {...form.getInputProps("phone")}
+            />
+            <TextInput
+              label='Name'
+              description='optional(to get in touch anonymously)'
+              placeholder='Enter your name here if you are comfortable...'
+              mt='md'
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+              {...form.getInputProps("name")}
+            />
+            <Textarea
+              required
+              label='Your message'
+              description='required'
+              placeholder='Start Typing your message here...'
+              minRows={4}
+              mt='md'
+              classNames={{ input: classes.input, label: classes.inputLabel }}
+              {...form.getInputProps("message")}
+            />
+
+            {loading && (
+              <Progress
+                radius='xl'
+                size='sm'
+                color={"violet"}
+                value={100}
+                striped
+                animate
+              />
+            )}
+            <Group position='right' mt='md'>
+              <Button
+                type='submit'
+                variant='gradient'
+                loading={loading}
+                loaderProps={{ variant: "dots" }}
+                // loaderPosition='center'
+                compact={loading}
+                // onClick={submitForm}
+                leftIcon={<IconSend size={14} />}
+                className={classes.control}
+              >
+                {loading ? "Sending" : "Send message"}
+              </Button>
+              {notify && (
+                <Notification
+                  icon={<IconCheck size={20} />}
+                  color='teal'
+                  title={loading ? "Sending..." : "Success"}
+                  loading={loading}
+                  disallowClose={loading}
+                  onClose={() => setNotify(false)}
+                >
+                  We will get back to you ASAP.
+                </Notification>
+              )}
+            </Group>
+          </form>
         </div>
       </SimpleGrid>
     </div>
