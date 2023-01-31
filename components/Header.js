@@ -8,7 +8,6 @@ import {
   Burger,
   Text,
   useMantineTheme,
-  HoverCard,
 } from "@mantine/core";
 import { useDisclosure, useScrollIntoView } from "@mantine/hooks";
 import {
@@ -206,41 +205,25 @@ export default function HeaderMiddle() {
               stroke={2}
             />
           </ActionIcon>
-          <HoverCard width={"50vw"} shadow='md'>
-            <HoverCard.Target>
-              <ActionIcon
-                component='a'
-                target='_blank'
-                href='https://www.justdial.com/Lucknow/Ratna-Singh-Advocate-Near-Malhaur-Station-Gomti-Nagar/0522PX522-X522-140413062127-G5N1_BZDET'
-                color={theme.primaryColor}
-                size='lg'
-              >
-                <IconCircleLetterJ
-                  size={18}
-                  color={
-                    theme.colorScheme === "dark"
-                      ? theme.colors.gray[0]
-                      : theme.colors.dark[9]
-                  }
-                  stroke={2}
-                />
-              </ActionIcon>
-            </HoverCard.Target>
-            <HoverCard.Dropdown>
-              <embed
-                src='https://www.google.com'
-                width='500px'
-                height='500px'
-              />
-            </HoverCard.Dropdown>
-          </HoverCard>
+          <ActionIcon
+            component='a'
+            target='_blank'
+            href='https://www.justdial.com/Lucknow/Ratna-Singh-Advocate-Near-Malhaur-Station-Gomti-Nagar/0522PX522-X522-140413062127-G5N1_BZDET'
+            color={theme.primaryColor}
+            size='lg'
+          >
+            <IconCircleLetterJ
+              size={18}
+              color={
+                theme.colorScheme === "dark"
+                  ? theme.colors.gray[0]
+                  : theme.colors.dark[9]
+              }
+              stroke={2}
+            />
+          </ActionIcon>
         </Group>
         <ThemeSwitch />
-        <iframe
-          src='https://www.google.com'
-          width='500px'
-          height='500px'
-        ></iframe>
       </Container>
     </Header>
   );
