@@ -176,6 +176,7 @@ export default function HeaderMiddle() {
             className={classes.iconBack}
             size='lg'
           >
+              
             <IconBrandInstagram
               // href='https://www.google.com/search?q=ratna+singh+advocate&rlz=1C1CHBF_enIN964IN964&oq=ratna+singh+advocate&aqs=chrome..69i57j0i390.6271j0j7&sourceid=chrome&ie=UTF-8'
               size={18}
