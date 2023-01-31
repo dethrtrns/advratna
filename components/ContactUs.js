@@ -25,6 +25,7 @@ import {
 import Joi from "joi";
 // import { IconCheck } from "@tabler/icons/icons-react";
 import { useState } from "react";
+import { sendContactForm } from "../lib/api/api";
 import { ContactIconsList } from "../utils/ContactIcons";
 
 const useStyles = createStyles((theme) => ({
@@ -129,10 +130,11 @@ export default function ContactUs() {
     },
   });
 
-  const submitForm = (v) => {
+  const submitForm = async (v) => {
     setLoading(true);
     setNotify(true);
     //call Database
+    await sendContactForm(v);
     setTimeout(() => {
       setLoading(false);
       form.reset();
