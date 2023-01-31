@@ -12,7 +12,7 @@ const handler = async (req, res) => {
         ...mailOptions,
         subject: "New Lead From Raj",
         text: `${data.phone}`,
-        html: `<h1>Client Name:</h1><p><strong>${data.name}</strong></p></br><h1>Client Email:</h1><p><strong>${data.email}</strong></p></br><h1>Client Phone number:</h1><p><strong>${data.phone}</strong></p></br><h1>Client Message:</h1><p><strong>${data.message}</strong></p></br>`,
+        html: `<h1>Client Name:</h1><p><strong>${data.name}</strong></p></br><h1>Client Email:</h1><p><strong>${data.email}</strong></p></br><h1>Client Phone number:</h1><p><strong><a href="tel:${data.phone}">${data.phone}</a></strong></p></br><h1>Client Message:</h1><p><strong>${data.message}</strong></p></br>`,
       });
     } catch (error) {
       console.log(error);
