@@ -40,16 +40,14 @@ export default function Home() {
     <>
       <ColorSchemeProvider
         colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
-      >
+        toggleColorScheme={toggleColorScheme}>
         <MantineProvider
           theme={{
             colorScheme,
             primaryColor: colorScheme === "dark" ? "cyan" : "indigo",
           }}
           withGlobalStyles
-          withNormalizeCSS
-        >
+          withNormalizeCSS>
           <Head>
             <title>Advocate Ratna Singh</title>
             <meta
@@ -64,10 +62,16 @@ export default function Home() {
               name='google-site-verification'
               content='szGiVp6Z2JcQxFGlQHmmcYAWwIiL2bbwj21kZ42uZR8'
             />
-            <link rel='icon' href='/favicon.ico' />
+            <link
+              rel='icon'
+              href='/logo-color-noBG.svg'
+            />
           </Head>
           {/* <HeaderMiddle /> */}
-          <Container fluid p={0} sx={{ transition: "all 0.6s linear" }}>
+          <Container
+            fluid
+            p={0}
+            sx={{ transition: "all 0.6s linear" }}>
             <Hero />
             <Features />
             {/* <Subgrid> */}
