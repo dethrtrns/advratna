@@ -4,6 +4,7 @@ import {
   Container,
   ActionIcon,
   Group,
+  useMantineTheme,
 } from "@mantine/core";
 import {
   IconBrandTwitter,
@@ -28,22 +29,29 @@ const useStyles = createStyles((theme) => ({
   },
 
   logo: {
-    maxWidth: 200,
+    // width: 100,
+    marginTop: -60,
+    minWidth: 100,
+    maxWidth: 150,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    textAlign: "center",
 
-    [theme.fn.smallerThan("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
+    // [theme.fn.largerThan("lg")]: {
+    //   marginTop: theme.spacing.xs,
+    //   textAlign: "left",
+    // },
   },
 
   description: {
-    marginTop: 5,
+    marginTop: -30,
 
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: theme.spacing.xs,
-      textAlign: "center",
-    },
+    // [theme.fn.smallerThan("sm")]: {
+    //   marginTop: theme.spacing.xs,
+    //   textAlign: "center",
+    // },
   },
 
   inner: {
@@ -183,6 +191,7 @@ const data = [
 
 export function Footer() {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
 
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
@@ -191,14 +200,15 @@ export function Footer() {
         className={classes.link}
         component='a'
         href={link.link}
-        onClick={(event) => event.preventDefault()}
-      >
+        onClick={(event) => event.preventDefault()}>
         {link.label}
       </Text>
     ));
 
     return (
-      <div className={classes.wrapper} key={group.title}>
+      <div
+        className={classes.wrapper}
+        key={group.title}>
         <Text className={classes.title}>{group.title}</Text>
         {links}
       </div>
@@ -209,34 +219,65 @@ export function Footer() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Text
+          <img
+            src={`./logo-${
+              theme.colorScheme === "dark" ? "color" : "color"
+            }-noBG.svg`}
+            // height='130%'
+            width='150%'
+            style={{
+              // backgroundColor: "black",
+              aspectRatio: "1/1",
+              borderRadius: "15%",
+            }}
+            // width='100'
+          />
+          {/* <Text
             variant='gradient'
             size={18}
             // color={theme.primaryColor}
             component='h1'
           >
             Ratna Associates
-          </Text>
-          <Text size='xs' color='dimmed' className={classes.description}>
+          </Text> */}
+          <Text
+            size='xs'
+            color='dimmed'
+            className={classes.description}>
             connect with our world class counselors for any legal service.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
-        <Text color='dimmed' size='sm'>
+        <Text
+          color='dimmed'
+          size='sm'>
           © 2002 ratna associates All rights reserved.
         </Text>
 
-        <Group spacing={0} className={classes.social} position='right' noWrap>
+        <Group
+          spacing={0}
+          className={classes.social}
+          position='right'
+          noWrap>
           <ActionIcon size='lg'>
-            <IconBrandTwitter size={18} stroke={1.5} />
+            <IconBrandTwitter
+              size={18}
+              stroke={1.5}
+            />
           </ActionIcon>
           <ActionIcon size='lg'>
-            <IconBrandYoutube size={18} stroke={1.5} />
+            <IconBrandYoutube
+              size={18}
+              stroke={1.5}
+            />
           </ActionIcon>
           <ActionIcon size='lg'>
-            <IconBrandInstagram size={18} stroke={1.5} />
+            <IconBrandInstagram
+              size={18}
+              stroke={1.5}
+            />
           </ActionIcon>
         </Group>
       </Container>

@@ -29,6 +29,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   inner: {
+    // backgroundImage: "url(./logo-color-noBG.svg)",
+    // backgroundAttachment: "repeat",
     position: "relative",
     zIndex: 1,
   },
@@ -106,20 +108,31 @@ export default function Hero() {
   const { classes, cx } = useStyles();
 
   return (
-    <div id='home' className={classes.wrapper}>
-      <Overlay color='#000' opacity={0.65} zIndex={1} />
+    <div
+      id='home'
+      className={classes.wrapper}>
+      <Overlay
+        color='#000'
+        opacity={0.65}
+        zIndex={1}
+      />
 
       <div className={classes.inner}>
         <HeaderMiddle />
         <Title className={classes.title}>
           Start your legal journey with{" "}
-          <Text component='span' inherit className={classes.highlight}>
+          <Text
+            component='span'
+            inherit
+            className={classes.highlight}>
             Ratna Associates
           </Text>
         </Title>
 
         <Container size={640}>
-          <Text size='lg' className={classes.description}>
+          <Text
+            size='lg'
+            className={classes.description}>
             We are dedicated to provide effortless legal solutions for your
             personal problems.With over 20 years of Experience in Family law we
             provide swift justice with ease.
@@ -138,8 +151,7 @@ export default function Hero() {
                 block: "start",
                 inline: "start",
               });
-            }}
-          >
+            }}>
             About Us
           </Button>
           <Button
@@ -152,8 +164,7 @@ export default function Hero() {
                 block: "start",
                 inline: "start",
               });
-            }}
-          >
+            }}>
             Contact Us
           </Button>
         </div>
