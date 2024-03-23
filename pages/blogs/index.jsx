@@ -7,7 +7,6 @@ import {
   AspectRatio,
   createStyles,
 } from "@mantine/core";
-// import classes from "./index.module.css";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -27,38 +26,90 @@ const useStyles = createStyles((theme) => ({
 
 const mockdata = [
   {
-    title: "Top 10 places to visit in Norway this summer",
+    title: "Supreme Court's Landmark Judgment on Arbitration",
     image:
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     date: "August 18, 2022",
   },
   {
-    title: "Best forests to visit in North America",
+    title: "Recent Amendments to the Arbitration and Conciliation Act, 1996",
     image:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     date: "August 27, 2022",
   },
   {
-    title: "Hawaii beaches review: better than you think",
+    title: "Enforcement of Foreign Arbitral Awards in India",
     image:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     date: "September 9, 2022",
   },
   {
-    title: "Mountains at night: 12 best locations to enjoy the view",
+    title: "Arbitration in the Construction Industry",
+    image:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "September 12, 2022",
+  },
+  {
+    title: "Arbitration in the Banking and Finance Sector",
+    image:
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "August 18, 2022",
+  },
+  {
+    title: "Arbitration in the Energy and Infrastructure Sector",
+    image:
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "August 27, 2022",
+  },
+  {
+    title: "Arbitration in the Healthcare Sector",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "September 9, 2022",
+  },
+  {
+    title: "Arbitration in the Technology Sector",
+    image:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "September 12, 2022",
+  },
+  {
+    title: "Arbitration in the Media and Entertainment Sector",
+    image:
+      "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "August 18, 2022",
+  },
+  {
+    title: "Arbitration in the Real Estate Sector",
+    image:
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "August 27, 2022",
+  },
+  {
+    title: "Arbitration in the Intellectual Property Sector",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+    date: "September 9, 2022",
+  },
+  {
+    title: "Arbitration in the Sports Sector",
     image:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     date: "September 12, 2022",
   },
 ];
 
+
+
 export default function ArticlesCardsGrid() {
-    const { classes } = useStyles();
+    const { classes, theme } = useStyles();
 
 
   const cards = mockdata.map((article) => (
     <Card
-      key={article.title}
+          key={article.title}
+        //   color={theme.colorScheme}
+        //   bg={theme.colors.indigo[4]}
       p='md'
       radius='md'
       component='a'
@@ -83,9 +134,25 @@ export default function ArticlesCardsGrid() {
     </Card>
   ));
 
-  return (
-    <Container py='xl'>
-      <SimpleGrid cols={{ base: 1, sm: 2 }}>{cards}</SimpleGrid>
-    </Container>
-  );
+    return (
+      <Container
+        w={"100dvw"}
+        py='xl'>
+        <Text
+          size='xl'
+          component='h1'
+          variant='gradient'>
+          Welcome to our blog section...
+        </Text>
+        <SimpleGrid
+          cols={3}
+          breakpoints={[
+            { maxWidth: 980, cols: 2, spacing: "md" },
+            { maxWidth: 600, cols: 1, spacing: "sm" },
+            { minWidth: 1920, cols: 4, spacing: "md" },
+          ]}>
+          {cards}
+        </SimpleGrid>
+      </Container>
+    );
 }

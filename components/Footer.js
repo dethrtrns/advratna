@@ -11,7 +11,6 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
