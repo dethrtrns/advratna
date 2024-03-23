@@ -158,7 +158,7 @@ const data = [
       },
       {
         label: "Blogs",
-        link: "#",
+        link: "/blogs",
       },
       {
         label: "Latest updates",
