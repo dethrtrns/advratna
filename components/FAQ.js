@@ -6,6 +6,7 @@ import {
   Col,
   Container,
   Title,
+  Text,
 } from "@mantine/core";
 import image from "../public/image.svg";
 
@@ -26,6 +27,7 @@ const useStyles = createStyles((theme) => ({
 
   item: {
     fontSize: theme.fontSizes.sm,
+
     color:
       theme.colorScheme === "dark"
         ? theme.colors.dark[1]
@@ -37,34 +39,53 @@ const placeholder =
   "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.";
 
 export function FAQ() {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
   return (
-    <div id='faq' className={classes.wrapper}>
+    <div
+      id='faq'
+      className={classes.wrapper}>
       <Container size='lg'>
-        <Grid id='faq-grid' gutter={50}>
-          <Col span={12} md={6}>
-            <Image src={image.src} alt='Frequently Asked Questions' />
+        <Grid
+          id='faq-grid'
+          gutter={50}>
+          <Col
+            span={12}
+            md={6}>
+            <Image
+              src={image.src}
+              alt='Frequently Asked Questions'
+            />
           </Col>
-          <Col span={12} md={6}>
-            <Title order={2} align='left' className={classes.title}>
+          <Col
+            span={12}
+            md={6}>
+            <Title
+              order={2}
+              align='left'
+              className={classes.title}>
               Frequently Asked Questions
             </Title>
 
             <Accordion
               chevronPosition='right'
               defaultValue='reset-password'
-              variant='separated'
-            >
-              <Accordion.Item className={classes.item} value='reset-password'>
+              variant='separated'>
+              {/* <Accordion.Item
+                className={classes.item}
+                value='reset-password'>
                 <Accordion.Control>
-                  Why should I try settlement through mediation?
+                  <Text>Why should I try settlement through mediation?</Text>
                 </Accordion.Control>
                 <Accordion.Panel>{placeholder}</Accordion.Panel>
-              </Accordion.Item>
+              </Accordion.Item> */}
 
-              <Accordion.Item className={classes.item} value='another-account'>
+              <Accordion.Item
+                className={classes.item}
+                value='another-account'>
                 <Accordion.Control>
-                  What to do when my spouse is Not willing to give divorce?
+                  <Text>
+                    What to do when my spouse is Not willing to give divorce?
+                  </Text>
                 </Accordion.Control>
                 <Accordion.Panel>
                   If the matter is not resolved amicably and mutual consent is
@@ -75,9 +96,13 @@ export function FAQ() {
                 </Accordion.Panel>
               </Accordion.Item>
 
-              <Accordion.Item className={classes.item} value='newsletter'>
+              <Accordion.Item
+                className={classes.item}
+                value='newsletter'>
                 <Accordion.Control>
-                  What are the steps involved in Mutually agreed Divorce?
+                  <Text>
+                    What are the steps involved in Mutually agreed Divorce?
+                  </Text>
                 </Accordion.Control>
                 <Accordion.Panel>
                   First, Both spouses must have lived apart for at least six
@@ -98,9 +123,11 @@ export function FAQ() {
                 </Accordion.Panel>
               </Accordion.Item>
 
-              <Accordion.Item className={classes.item} value='credit-card'>
+              <Accordion.Item
+                className={classes.item}
+                value='credit-card'>
                 <Accordion.Control>
-                  Who gets the child's custody after divorce?
+                  <Text>Who gets the child's custody after divorce?</Text>
                 </Accordion.Control>
                 <Accordion.Panel>
                   There are various types of custodies granted to parents, which
@@ -121,10 +148,15 @@ export function FAQ() {
                 </Accordion.Panel>
               </Accordion.Item>
 
-              <Accordion.Item className={classes.item} value='payment'>
+              <Accordion.Item
+                className={classes.item}
+                value='payment'>
                 <Accordion.Control>
+                  <Text>
+
                   How long do I have to wait after the marriage to file for
                   divorce?
+                  </Text>
                 </Accordion.Control>
                 <Accordion.Panel>
                   You can file for divorce only after completion of 1 year of
