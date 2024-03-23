@@ -47,7 +47,8 @@ export default function Home() {
             primaryColor: colorScheme === "dark" ? "cyan" : "indigo",
           }}
           withGlobalStyles
-          withNormalizeCSS>
+          withNormalizeCSS
+        >
           <Head>
             <title>Advocate Ratna Singh</title>
             <meta
