@@ -12,6 +12,7 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons";
 import { MantineLogo } from "@mantine/ds";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -195,14 +196,15 @@ export function Footer() {
 
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
-      <Text
+      <Link
         key={index}
         className={classes.link}
-        component='a'
+        // component='a'
         href={link.link}
-        onClick={(event) => event.preventDefault()}>
+        // onClick={(event) => event.preventDefault()}
+      >
         {link.label}
-      </Text>
+      </Link>
     ));
 
     return (
