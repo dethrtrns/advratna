@@ -241,7 +241,7 @@ export default function HeaderMiddle() {
             <ActionIcon
               component='a'
               target='_blank'
-              href='https://www.facebook.com/ratnoja.singh.rathore/'
+              href='#'//'https://www.facebook.com/ratnoja.singh.rathore/'
               color={theme.primaryColor}
               className={classes.iconBack}
               size='lg'>
