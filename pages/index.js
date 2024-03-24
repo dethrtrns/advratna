@@ -94,14 +94,6 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <Box
-          sx={{
-            width: "80%",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-        </Box>
       </Box> */}
           {/* <TextInput placeholder='Your name' label='Full name' withAsterisk /> */}
         </MantineProvider>

@@ -26,22 +26,40 @@ const useStyles = createStyles((theme) => ({
 
 const mockdata = [
   {
+    title: "Understanding Family Law in India",
+    image:
+      "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+    date: "March 1, 2024",
+  },
+  {
+    title: "A Comprehensive Guide to Civil Law in India",
+    image:
+      "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+    date: "March 2, 2024",
+  },
+  {
+    title: "Understanding the Indian Penal Code: A Comprehensive Guide",
+    image:
+      "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+    date: "February 1, 2024",
+  },
+  {
     title: "Supreme Court's Landmark Judgment on Arbitration",
     image:
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "August 18, 2022",
+    date: "August 18, 2023",
   },
   {
     title: "Recent Amendments to the Arbitration and Conciliation Act, 1996",
     image:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "August 27, 2022",
+    date: "August 27, 2023",
   },
   {
     title: "Enforcement of Foreign Arbitral Awards in India",
     image:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "September 9, 2022",
+    date: "September 9, 2023",
   },
   {
     title: "Arbitration in the Construction Industry",
@@ -59,25 +77,25 @@ const mockdata = [
     title: "Arbitration in the Energy and Infrastructure Sector",
     image:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "August 27, 2022",
+    date: "August 27, 2021",
   },
   {
     title: "Arbitration in the Healthcare Sector",
     image:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "September 9, 2022",
+    date: "September 9, 2021",
   },
   {
     title: "Arbitration in the Technology Sector",
     image:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "September 12, 2022",
+    date: "September 12, 2021",
   },
   {
     title: "Arbitration in the Media and Entertainment Sector",
     image:
       "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-    date: "August 18, 2022",
+    date: "August 18, 2020",
   },
   {
     title: "Arbitration in the Real Estate Sector",
