@@ -95,7 +95,6 @@ export default function Home() {
         }}
       >
       </Box> */}
-          {/* <TextInput placeholder='Your name' label='Full name' withAsterisk /> */}
         </MantineProvider>
       </ColorSchemeProvider>
     </>
