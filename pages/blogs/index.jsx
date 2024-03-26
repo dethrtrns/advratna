@@ -7,6 +7,7 @@ import {
   AspectRatio,
   createStyles,
 } from "@mantine/core";
+import BlogPage from "../../components/BlogPage";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -120,14 +121,14 @@ const mockdata = [
 
 
 export default function ArticlesCardsGrid() {
-    const { classes, theme } = useStyles();
+  const { classes, theme } = useStyles();
 
 
   const cards = mockdata.map((article) => (
     <Card
-          key={article.title}
-        //   color={theme.colorScheme}
-        //   bg={theme.colors.indigo[4]}
+      key={article.title}
+      //   color={theme.colorScheme}
+      //   bg={theme.colors.indigo[4]}
       p='md'
       radius='md'
       component='a'
@@ -152,25 +153,26 @@ export default function ArticlesCardsGrid() {
     </Card>
   ));
 
-    return (
-      <Container
-        w={"100dvw"}
-        py='xl'>
-        <Text
-          size='xl'
-          component='h1'
-          variant='gradient'>
-          Welcome to our blog section...
-        </Text>
-        <SimpleGrid
-          cols={3}
-          breakpoints={[
-            { maxWidth: 980, cols: 2, spacing: "md" },
-            { maxWidth: 600, cols: 1, spacing: "sm" },
-            { minWidth: 1920, cols: 4, spacing: "md" },
-          ]}>
-          {cards}
-        </SimpleGrid>
-      </Container>
-    );
+  return (
+    <Container
+      w={"100dvw"}
+      py='xl'>
+      <BlogPage />
+      <Text
+        size='xl'
+        component='h1'
+        variant='gradient'>
+        Welcome to our blog section...
+      </Text>
+      <SimpleGrid
+        cols={3}
+        breakpoints={[
+          { maxWidth: 980, cols: 2, spacing: "md" },
+          { maxWidth: 600, cols: 1, spacing: "sm" },
+          { minWidth: 1920, cols: 4, spacing: "md" },
+        ]}>
+        {cards}
+      </SimpleGrid>
+    </Container>
+  );
 }
