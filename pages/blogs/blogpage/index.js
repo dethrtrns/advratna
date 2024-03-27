@@ -1,7 +1,7 @@
 export default function BlogPage() {
   return (
     <>
-      <h1>Blog Details</h1>
+      <h1>Blog Details page</h1>
     </>
   );
 }

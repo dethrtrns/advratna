@@ -7,7 +7,7 @@ import {
   AspectRatio,
   createStyles,
 } from "@mantine/core";
-import BlogPage from "../../components/BlogPage";
+import BlogPage from "./blogpage/index.js";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -118,11 +118,8 @@ const mockdata = [
   },
 ];
 
-
-
 export default function ArticlesCardsGrid() {
   const { classes, theme } = useStyles();
-
 
   const cards = mockdata.map((article) => (
     <Card
