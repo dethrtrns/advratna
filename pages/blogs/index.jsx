@@ -158,7 +158,8 @@ export default function ArticlesCardsGrid() {
       <Text
         size='xl'
         component='h1'
-        variant='gradient'>
+        variant='gradient'
+      >
         Welcome to our blog section...
       </Text>
       <SimpleGrid
