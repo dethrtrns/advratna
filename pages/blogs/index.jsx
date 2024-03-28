@@ -129,7 +129,7 @@ export default function ArticlesCardsGrid() {
       p='md'
       radius='md'
       component='a'
-      href='#'
+      href='/blogs/blogpage'
       className={classes.card}>
       <AspectRatio ratio={1920 / 1080}>
         <Image src={article.image} />
@@ -154,9 +154,8 @@ export default function ArticlesCardsGrid() {
     <Container
       w={"100dvw"}
       py='xl'>
-      <BlogPage />
       <Text
-        size='xl'
+        size='2.5rem'
         component='h1'
         variant='gradient'
       >
