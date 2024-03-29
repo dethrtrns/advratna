@@ -41,6 +41,7 @@ const links = [
   {
     link: "blogs",
     label: "Blogs",
+    href: '/blogs'
   },
   {
     link: "contact",
@@ -144,37 +145,24 @@ export default function HeaderMiddle() {
   }, []);
 
   const items = links.map((link) =>
-    link.link === "blogs" ? (
       <Link
         key={link.label}
-        href={link.link}
+        href={link.href? link.href: `/#${link.label}`}
         className={cx(classes.link, {
           [classes.linkActive]: active === link.link,
         })}
         onClick={() => {
           setActive(link.link);
+          if (!link.href) {
+            document.getElementById(link.link).scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "start",
+            });
+          }
         }}>
         {link.label}
       </Link>
-    ) : (
-      <a
-        key={link.label}
-        href={link.link}
-        className={cx(classes.link, {
-          [classes.linkActive]: active === link.link,
-        })}
-        onClick={(event) => {
-          event.preventDefault();
-          document.getElementById(link.link).scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "start",
-          });
-          setActive(link.link);
-        }}>
-        {link.label}
-      </a>
-    )
   );
 
   return (

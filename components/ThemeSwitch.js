@@ -10,6 +10,8 @@ export function ThemeSwitch() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
 
+  // TODO: store and use the theme from local storage
+
   return (
     <Group position='center' my={30}>
       <Switch

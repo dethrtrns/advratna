@@ -118,7 +118,6 @@ export default function Hero() {
       />
 
       <div className={classes.inner}>
-        <HeaderMiddle />
         <Title className={classes.title}>
           Start your legal journey with{" "}
           <Text

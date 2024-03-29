@@ -1,29 +1,38 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import "../styles/globals.css";
+import HeaderMiddle from "../components/Header";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
+  const [colorScheme, setColorScheme] = useState("light");
+  // const ref = useRef(null);
+  const toggleColorScheme = (value) =>
+    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   return (
     <>
       <Head>
-        <title>Page title</title>
+        <title>Ratna Associates</title>
         <meta
           name='viewport'
           content='minimum-scale=1, initial-scale=1, width=device-width'
         />
       </Head>
-
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: "dark",
-        }}
-      >
-        <Component {...pageProps} />
-      </MantineProvider>
+        <ColorSchemeProvider
+          colorScheme={colorScheme}
+          toggleColorScheme={toggleColorScheme}>
+          <MantineProvider
+            theme={{
+              colorScheme,
+              primaryColor: colorScheme === "dark" ? "cyan" : "indigo",
+            }}
+            withGlobalStyles
+            withNormalizeCSS>
+            <HeaderMiddle />
+            <Component {...pageProps} />
+          </MantineProvider>
+        </ColorSchemeProvider>
     </>
   );
 }
