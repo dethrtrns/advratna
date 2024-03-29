@@ -144,6 +144,8 @@ export default function HeaderMiddle() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  //FIXME: error on spa routes(#) double click, href route is fine.
+
   const items = links.map((link) =>
       <Link
         key={link.label}
