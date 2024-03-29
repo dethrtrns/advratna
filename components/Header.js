@@ -23,6 +23,7 @@ import {
 // import { MantineLogo } from "@mantine/ds";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { Html } from "next/document";
+import Link from "next/link";
 
 const links = [
   {
@@ -36,6 +37,10 @@ const links = [
   {
     link: "faq",
     label: "FAQ",
+  },
+  {
+    link: "blogs",
+    label: "Blogs",
   },
   {
     link: "contact",
@@ -138,25 +143,39 @@ export default function HeaderMiddle() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      onClick={(event) => {
-        event.preventDefault();
-        document.getElementById(link.link).scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "start",
-        });
-        setActive(link.link);
-      }}>
-      {link.label}
-    </a>
-  ));
+  const items = links.map((link) =>
+    link.link === "blogs" ? (
+      <Link
+        key={link.label}
+        href={link.link}
+        className={cx(classes.link, {
+          [classes.linkActive]: active === link.link,
+        })}
+        onClick={() => {
+          setActive(link.link);
+        }}>
+        {link.label}
+      </Link>
+    ) : (
+      <a
+        key={link.label}
+        href={link.link}
+        className={cx(classes.link, {
+          [classes.linkActive]: active === link.link,
+        })}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(link.link).scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "start",
+          });
+          setActive(link.link);
+        }}>
+        {link.label}
+      </a>
+    )
+  );
 
   return (
     <Header
@@ -241,7 +260,7 @@ export default function HeaderMiddle() {
             <ActionIcon
               component='a'
               target='_blank'
-              href='#'//'https://www.facebook.com/ratnoja.singh.rathore/'
+              href='#' //'https://www.facebook.com/ratnoja.singh.rathore/'
               color={theme.primaryColor}
               className={classes.iconBack}
               size='lg'>
