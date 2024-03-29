@@ -7,7 +7,6 @@ import {
   AspectRatio,
   createStyles,
 } from "@mantine/core";
-import BlogPage from "./blogpage/index.js";
 
 const useStyles = createStyles((theme) => ({
   card: {
