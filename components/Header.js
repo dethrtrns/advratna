@@ -144,7 +144,8 @@ export default function HeaderMiddle() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //FIXME: error on spa routes(#) double click, href route is fine.
+  //TODO: implement universal routing with next routes and sync the active state from there
+  //TODO: implement scroll animation with default route scrolling behavior in spa
 
   const items = links.map((link) => (
     <Link
