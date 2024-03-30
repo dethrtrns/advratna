@@ -41,7 +41,7 @@ const links = [
   {
     link: "blogs",
     label: "Blogs",
-    href: '/blogs'
+    href: "/blogs",
   },
   {
     link: "contact",
@@ -146,26 +146,27 @@ export default function HeaderMiddle() {
 
   //FIXME: error on spa routes(#) double click, href route is fine.
 
-  const items = links.map((link) =>
-      <Link
-        key={link.label}
-        href={link.href? link.href: `/#${link.label}`}
-        className={cx(classes.link, {
-          [classes.linkActive]: active === link.link,
-        })}
-        onClick={() => {
-          setActive(link.link);
-          if (!link.href) {
-            document.getElementById(link.link).scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-              inline: "start",
-            });
-          }
-        }}>
-        {link.label}
-      </Link>
-  );
+  const items = links.map((link) => (
+    <Link
+      key={link.label}
+      href={link.href ? link.href : `/#${link.link}`}
+      className={cx(classes.link, {
+        [classes.linkActive]: active === link.link,
+      })}
+      onClick={(e) => {
+        if (!link.href && active !== "blogs") {
+          e.preventDefault();
+          document.getElementById(link.link).scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "start",
+          });
+        }
+        setActive(link.link);
+      }}>
+      {link.label}
+    </Link>
+  ));
 
   return (
     <Header
