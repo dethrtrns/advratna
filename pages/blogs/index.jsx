@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
     boxShadow: theme.shadows.sm,
 
     "&:hover": {
-      transform: "scale(1.01)",
+      transform: "scale(1.05)",
       boxShadow: theme.shadows.lg,
     },
   },
