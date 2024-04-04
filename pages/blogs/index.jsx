@@ -17,6 +17,12 @@ const useStyles = createStyles((theme) => ({
       boxShadow: theme.shadows.lg,
     },
   },
+  glassmorphism: {
+    background: `rgba(255, 255, 255, 0.7)`,
+    backdropFilter: "blur(10px)",
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+  },
 
   title: {
     fontFamily: "Greycliff CF",
@@ -115,6 +121,7 @@ const mockdata = [
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     date: "September 12, 2022",
   },
+
 ];
 
 export default function ArticlesCardsGrid() {
@@ -158,7 +165,7 @@ export default function ArticlesCardsGrid() {
         component='h1'
         variant='gradient'
       >
-        Welcome to our blog section...
+        Welcome to our blogs section...
       </Text>
       <SimpleGrid
         cols={3}
