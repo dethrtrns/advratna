@@ -11,6 +11,7 @@ import {
 const useStyles = createStyles((theme) => ({
   card: {
     transition: "all 150ms ease, box-shadow 150ms ease",
+    boxShadow: theme.shadows.sm,
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -121,7 +122,6 @@ const mockdata = [
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
     date: "September 12, 2022",
   },
-
 ];
 
 export default function ArticlesCardsGrid() {
@@ -130,7 +130,7 @@ export default function ArticlesCardsGrid() {
   const cards = mockdata.map((article) => (
     <Card
       key={article.title}
-      //   color={theme.colorScheme}
+      color={theme.colorScheme}
       //   bg={theme.colors.indigo[4]}
       p='md'
       radius='md'
@@ -163,8 +163,7 @@ export default function ArticlesCardsGrid() {
       <Text
         size='2.5rem'
         component='h1'
-        variant='gradient'
-      >
+        variant='gradient'>
         Welcome to our blogs section...
       </Text>
       <SimpleGrid
