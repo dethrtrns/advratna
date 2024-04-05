@@ -7,6 +7,7 @@ import {
   AspectRatio,
   createStyles,
 } from "@mantine/core";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -128,32 +129,34 @@ export default function ArticlesCardsGrid() {
   const { classes, theme } = useStyles();
 
   const cards = mockdata.map((article) => (
-    <Card
-      key={article.title}
-      color={theme.colorScheme}
-      //   bg={theme.colors.indigo[4]}
-      p='md'
-      radius='md'
-      component='a'
-      href='/blogs/blogpage'
-      className={classes.card}>
-      <AspectRatio ratio={1920 / 1080}>
-        <Image src={article.image} />
-      </AspectRatio>
-      <Text
-        c='dimmed'
-        size='xs'
-        tt='uppercase'
-        fw={700}
-        mt='md'>
-        {article.date}
-      </Text>
-      <Text
-        className={classes.title}
-        mt={5}>
-        {article.title}
-      </Text>
-    </Card>
+    <Link href='/blogs/blogpage'>
+      <Card
+        key={article.title}
+        color={theme.colorScheme}
+        //   bg={theme.colors.indigo[4]}
+        p='md'
+        radius='md'
+        // component={Link}
+        // href='/blogs/blogpage'
+        className={classes.card}>
+        <AspectRatio ratio={1920 / 1080}>
+          <Image src={article.image} />
+        </AspectRatio>
+        <Text
+          c='dimmed'
+          size='xs'
+          tt='uppercase'
+          fw={700}
+          mt='md'>
+          {article.date}
+        </Text>
+        <Text
+          className={classes.title}
+          mt={5}>
+          {article.title}
+        </Text>
+      </Card>
+    </Link>
   ));
 
   return (
