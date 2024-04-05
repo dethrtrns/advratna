@@ -128,7 +128,7 @@ const mockdata = [
 export default function ArticlesCardsGrid() {
   const { classes, theme } = useStyles();
 
-  const cards = mockdata.map((article) => (
+  const cards = mockdata.map((article) => ( // TODO:fix header logo on blogDetail page. FIXME: next routing.
     <Link href='/blogs/blogpage'>
       <Card
         key={article.title}
