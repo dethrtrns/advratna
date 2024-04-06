@@ -1,12 +1,13 @@
 import { Flex, Text } from '@mantine/core'
+import Layout from '../../components/layout/Layout'
 
 export default function Playground() {
     return <>
         <Flex sx={{
-            zIndex: 50,
-        }} w={'100dvw'} mih={'100dvh'} bg={'gray'} justify={'center'} align={'start'} >
+            // zIndex: 50,
+        }} w={'100dvw'} mih={'100dvh'} bg={'gray'} justify={'start'} align={'start'} >
 
-        <Text size={25} >this is a testing site</Text>
+        <Layout />
         </Flex>
     </>
 }

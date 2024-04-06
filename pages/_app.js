@@ -30,8 +30,8 @@ export default function App({ Component, pageProps }) {
           }}
           withGlobalStyles
           withNormalizeCSS>
-          {(window.location.pathname !== "/playground") &&
-            < HeaderMiddle />}
+          {/* {window.location.pathname !== "/playground"} TODO: remove any layout if route = playground(with next router) */}
+          <HeaderMiddle />
           <Component {...pageProps} />
         </MantineProvider>
       </ColorSchemeProvider>

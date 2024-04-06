@@ -5,6 +5,7 @@ import {
   ActionIcon,
   Group,
   useMantineTheme,
+  Flex,
 } from "@mantine/core";
 import {
   IconBrandTwitter,
@@ -15,9 +16,9 @@ import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    // marginTop: 120,
     paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
+    // paddingBottom: theme.spacing.xs,
     backgroundColor:
       theme.colorScheme === "dark"
         ? theme.colors.dark[6]
@@ -29,10 +30,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   logo: {
-    // width: 100,
     marginTop: -60,
+    width: 150,
     minWidth: 100,
-    maxWidth: 150,
+    maxWidth: 200,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -56,7 +57,7 @@ const useStyles = createStyles((theme) => ({
 
   inner: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
 
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
@@ -74,7 +75,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   wrapper: {
-    width: 160,
+    width: 200,
   },
 
   link: {
@@ -104,9 +105,9 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: theme.spacing.xl,
-    paddingTop: theme.spacing.xl,
-    paddingBottom: theme.spacing.xl,
+    marginTop: theme.spacing.md,
+    paddingTop: theme.spacing.md,
+    paddingBottom: theme.spacing.md,
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
     }`,
@@ -189,7 +190,7 @@ const data = [
   },
 ];
 
-export function Footer() {
+export default function Footer() {
   const { classes } = useStyles();
   const theme = useMantineTheme();
 
@@ -217,8 +218,14 @@ export function Footer() {
   });
 
   return (
-    <footer className={classes.footer}>
-      <Container className={classes.inner}>
+    <Flex
+      component='footer'
+      direction={"column"}
+      justify={"space-between"}
+      align={"stretch"}
+      w={"100%"}
+      className={classes.footer}>
+      <Flex className={classes.inner}>
         <div className={classes.logo}>
           <img
             src={`./logo-${
@@ -233,23 +240,18 @@ export function Footer() {
             }}
             // width='100'
           />
-          {/* <Text
-            variant='gradient'
-            size={18}
-            // color={theme.primaryColor}
-            component='h1'
-          >
-            Ratna Associates
-          </Text> */}
           <Text
-            size='xs'
-            color='dimmed'
+            fz={"sm"}
+            fw={"bold"}
+            ff={"sans-serif"}
+            variant='gradient'
+            color={theme.primaryColor}
             className={classes.description}>
             connect with our world class counselors for any legal service.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
-      </Container>
+      </Flex>
       <Container className={classes.afterFooter}>
         <Text
           color='dimmed'
@@ -282,6 +284,6 @@ export function Footer() {
           </ActionIcon>
         </Group>
       </Container>
-    </footer>
+    </Flex>
   );
 }
