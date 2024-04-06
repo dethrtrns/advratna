@@ -10,6 +10,7 @@ export default function App({ Component, pageProps }) {
   // const ref = useRef(null);
   const toggleColorScheme = (value) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+
   return (
     <>
       <Head>
@@ -19,20 +20,21 @@ export default function App({ Component, pageProps }) {
           content='minimum-scale=1, initial-scale=1, width=device-width'
         />
       </Head>
-        <ColorSchemeProvider
-          colorScheme={colorScheme}
-          toggleColorScheme={toggleColorScheme}>
-          <MantineProvider
-            theme={{
-              colorScheme,
-              primaryColor: colorScheme === "dark" ? "cyan" : "indigo",
-            }}
-            withGlobalStyles
-            withNormalizeCSS>
-            <HeaderMiddle />
-            <Component {...pageProps} />
-          </MantineProvider>
-        </ColorSchemeProvider>
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        toggleColorScheme={toggleColorScheme}>
+        <MantineProvider
+          theme={{
+            colorScheme,
+            primaryColor: colorScheme === "dark" ? "cyan" : "indigo",
+          }}
+          withGlobalStyles
+          withNormalizeCSS>
+          {(window.location.pathname !== "/playground") &&
+            < HeaderMiddle />}
+          <Component {...pageProps} />
+        </MantineProvider>
+      </ColorSchemeProvider>
     </>
   );
 }
