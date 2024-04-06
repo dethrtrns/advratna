@@ -59,7 +59,7 @@ export default function OfflinePage() {
           size='xl'
           weight={700}
           style={{ marginBottom: theme.spacing.xl }}>
-          You're offline
+          You're offline...
         </Text>
         <Button
           variant='outline'
