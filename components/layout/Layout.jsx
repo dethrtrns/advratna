@@ -2,7 +2,7 @@ import { Button, Flex, Text } from "@mantine/core";
 import HeaderMiddle from "../Header";
 import Footer from "../Footer";
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <Flex
       w={"100dvw"}
@@ -11,7 +11,13 @@ export default function Layout() {
       justify={"space-between"}
       align={"center"}>
       <HeaderMiddle />
-      {/* <Text size={200}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque asperiores libero adipisci voluptates accusantium beatae eaque necessitatibus. Aperiam temporibus eveniet molestias porro dolorum, beatae dicta aliquid a quis quisquam mollitia?</Text> */}
+      <Flex
+        w={"100%"}
+        // justify={"space-between"}
+        direction={"column"}
+        component='main'>
+        {children}
+      </Flex>
       <Footer />
     </Flex>
   );

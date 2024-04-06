@@ -55,7 +55,7 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    height: 56,
+    height: 76,
 
     // [theme.fn.smallerThan("xs")]: {
     //   justifyContent: "flex-start",
@@ -65,7 +65,7 @@ const useStyles = createStyles((theme) => ({
 
   links: {
     // width: 260,
-    [theme.fn.smallerThan("xs")]: {
+    [theme.fn.smallerThan("sm")]: {
       display: "none",
     },
   },
@@ -171,7 +171,7 @@ export default function HeaderMiddle() {
   ));
 
   return (
-    <Flex component='header'>
+    <Flex component='div'>
       <Header
         bg={
           scrolled
@@ -183,7 +183,7 @@ export default function HeaderMiddle() {
         fixed
         withBorder={false}
         zIndex={20}
-        height={56}>
+        height={76}>
         <Container
           component='nav'
           fluid
@@ -217,7 +217,7 @@ export default function HeaderMiddle() {
                 // width='100'
               />
             </Button>
-            {/* <Burger
+            {/* <Burger TODO: add nav menu for mobile devices
             opened={opened}
             onClick={toggle}
             color={theme.colorScheme === "dark" ? "white" : "black"}

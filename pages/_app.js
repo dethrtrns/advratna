@@ -4,6 +4,7 @@ import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import "../styles/globals.css";
 import HeaderMiddle from "../components/Header";
 import { useState } from "react";
+import Layout from "../components/layout/Layout";
 
 export default function App({ Component, pageProps }) {
   const [colorScheme, setColorScheme] = useState("light");
@@ -31,8 +32,10 @@ export default function App({ Component, pageProps }) {
           withGlobalStyles
           withNormalizeCSS>
           {/* {window.location.pathname !== "/playground"} TODO: remove any layout if route = playground(with next router) */}
-          <HeaderMiddle />
-          <Component {...pageProps} />
+          {/* <HeaderMiddle /> */}
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

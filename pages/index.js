@@ -43,8 +43,9 @@ export default function Home() {
         />
       </Head>
       <Container
+        w={"100dvw"}
         fluid
-        p={0}
+        px={0}
         sx={{ transition: "all 0.6s linear" }}>
         <Hero />
         <Features />
@@ -57,7 +58,7 @@ export default function Home() {
         <FAQ />
         <ContactUs />
         <ScrollTop />
-        <Footer />
+        {/* <Footer /> */}
       </Container>
 
       {/* <h1>hello world</h1> */}

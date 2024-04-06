@@ -125,19 +125,22 @@ const mockdata = [
   },
 ];
 
-export default function ArticlesCardsGrid() {
+export default function BlogsPage() {
   const { classes, theme } = useStyles();
 
-  const cards = mockdata.map((article) => ( // TODO:fix header logo on blogDetail page. FIXME: next routing.
-    <Link href='/blogs/blogpage'>
+  const cards = mockdata.map(
+    (
+      article // TODO:fix header logo on blogDetail page. FIXME: next routing.
+    ) => (
+      // <Link href='/blogs/blogpage'>
       <Card
         key={article.title}
         color={theme.colorScheme}
         //   bg={theme.colors.indigo[4]}
         p='md'
         radius='md'
-        // component={Link}
-        // href='/blogs/blogpage'
+        component={Link}
+        href='/blogs/blogpage'
         className={classes.card}>
         <AspectRatio ratio={1920 / 1080}>
           <Image src={article.image} />
@@ -156,8 +159,9 @@ export default function ArticlesCardsGrid() {
           {article.title}
         </Text>
       </Card>
-    </Link>
-  ));
+      // </Link>
+    )
+  );
 
   return (
     <Container
