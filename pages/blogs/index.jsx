@@ -140,7 +140,11 @@ export default function BlogsPage() {
         p='md'
         radius='md'
         component={Link}
-        href='/blogs/blogpage'
+        // href={`/blogs/${article.title}`}
+        href={{
+          pathname: "/blogs/[id]",
+          query: { id: article.title, date: article.date, img: article.image },
+        }}
         className={classes.card}>
         <AspectRatio ratio={1920 / 1080}>
           <Image src={article.image} />
