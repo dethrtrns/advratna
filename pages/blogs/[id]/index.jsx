@@ -12,7 +12,7 @@ export default function BlogPage() {
       justify='center'
       align='center'>
       <Text
-        fz={35}
+        fz={36}
         variant='gradient'>
         {router.query.id}
       </Text>
