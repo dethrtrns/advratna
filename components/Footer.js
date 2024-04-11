@@ -13,6 +13,7 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons";
 import Link from "next/link";
+import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -227,7 +228,21 @@ export default function Footer() {
       className={classes.footer}>
       <Flex className={classes.inner}>
         <div className={classes.logo}>
-          <img
+          <Image
+            src={`/logo-${
+              theme.colorScheme === "dark" ? "color" : "color"
+            }-noBG.svg`}
+            // height='150%'
+            width={180}
+            height={180}
+            style={{
+              aspectRatio: "1/1",
+              borderRadius: "15%",
+            }}
+            alt='Ratna Associates'
+            // width='100'
+          />
+          {/* <img
             src={`./logo-${
               theme.colorScheme === "dark" ? "color" : "color"
             }-noBG.svg`}
@@ -236,10 +251,8 @@ export default function Footer() {
             style={{
               // backgroundColor: "black",
               aspectRatio: "1/1",
-              borderRadius: "15%",
             }}
-            // width='100'
-          />
+          /> */}
           <Text
             fz={"sm"}
             fw={"bold"}

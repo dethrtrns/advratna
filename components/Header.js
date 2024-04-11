@@ -25,6 +25,7 @@ import {
 import { ThemeSwitch } from "./ThemeSwitch";
 import { Html } from "next/document";
 import Link from "next/link";
+import Image from "next/image";
 
 const links = [
   {
@@ -206,14 +207,17 @@ export default function HeaderMiddle() {
                 transition: "all 0.2s ease-in-out",
               }}
               href={"/"}>
-              <img
-                src={`./logo-${
+              <Image
+                src={`/logo-${
                   theme.colorScheme === "dark" ? "white" : "black"
                 }-noBG.svg`}
-                height='150%'
+                // height='150%'
+                width={100}
+                height={100}
                 style={{
                   aspectRatio: "1/1",
                 }}
+                alt="Ratna Associates"
                 // width='100'
               />
             </Button>
