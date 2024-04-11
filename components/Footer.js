@@ -242,17 +242,6 @@ export default function Footer() {
             alt='Ratna Associates'
             // width='100'
           />
-          {/* <img
-            src={`./logo-${
-              theme.colorScheme === "dark" ? "color" : "color"
-            }-noBG.svg`}
-            // height='130%'
-            width='150%'
-            style={{
-              // backgroundColor: "black",
-              aspectRatio: "1/1",
-            }}
-          /> */}
           <Text
             fz={"sm"}
             fw={"bold"}
