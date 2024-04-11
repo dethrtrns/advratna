@@ -26,6 +26,7 @@ import { ThemeSwitch } from "./ThemeSwitch";
 import { Html } from "next/document";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const links = [
   {
@@ -125,9 +126,13 @@ const useStyles = createStyles((theme) => ({
 
 export default function HeaderMiddle() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
+  // /blogs/[id];
+
+  // console.log(router);
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
 
@@ -140,6 +145,14 @@ export default function HeaderMiddle() {
         setScrolled(false);
       }
     };
+
+    // extract the first route path eg.- '/#blogs/[id]'.split('/')[1].includes('blogs')
+    const firstRoutePath = router.asPath.split("/")[1];
+    // set active link state on reloads to the respective link from links array if path contains that link
+    links.forEach((link) =>
+      firstRoutePath.includes(link.link) ? setActive(link.link) : false
+    );
+
 
     window.addEventListener("scroll", handleScroll);
 
