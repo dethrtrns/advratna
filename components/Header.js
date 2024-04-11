@@ -27,6 +27,7 @@ import { Html } from "next/document";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import CustomLink from "../utils/CustomLink";
 
 const links = [
   {
@@ -153,6 +154,8 @@ export default function HeaderMiddle() {
       firstRoutePath.includes(link.link) ? setActive(link.link) : false
     );
 
+    // router.query.theme
+    // console.log(router.query);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -162,7 +165,7 @@ export default function HeaderMiddle() {
   //TODO: implement scroll animation with default route scrolling behavior in spa
 
   const items = links.map((link) => (
-    <Link
+    <CustomLink
       key={link.label}
       href={link.href ? link.href : `/#${link.link}`}
       className={cx(classes.link, {
@@ -170,7 +173,7 @@ export default function HeaderMiddle() {
       })}
       onClick={() => setActive(link.link)}>
       {link.label}
-    </Link>
+    </CustomLink>
   ));
 
   return (

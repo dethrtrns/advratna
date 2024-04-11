@@ -3,15 +3,34 @@ import Head from "next/head";
 import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import "../styles/globals.css";
 import HeaderMiddle from "../components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../components/layout/Layout";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
   const [colorScheme, setColorScheme] = useState("light");
   // const ref = useRef(null);
-  const toggleColorScheme = (value) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
+  useEffect(() => {
+    // Initialize theme state based on URL query parameter when component mounts
+    const { colorScheme: colorSchemeFromUrl } = router.query;
+    if (colorSchemeFromUrl) {
+      setColorScheme(colorSchemeFromUrl);
+    }
+  }, [router.query.colorScheme]);
+
+  const toggleColorScheme = () => {
+    const newColorScheme = colorScheme === "dark" ? "light" : "dark";
+    router.replace({
+      pathname: router.pathname,
+      query: { ...router.query, colorScheme: newColorScheme },
+    });
+    setColorScheme(newColorScheme);
+  };
+
+  console.log("router queries from _app-->", router.query);
+  //TODO: add theme to route
   return (
     <>
       <Head>
@@ -26,7 +45,7 @@ export default function App({ Component, pageProps }) {
         toggleColorScheme={toggleColorScheme}>
         <MantineProvider
           theme={{
-            colorScheme,
+            colorScheme: colorScheme,
             primaryColor: colorScheme === "dark" ? "cyan" : "indigo",
           }}
           withGlobalStyles

@@ -8,6 +8,7 @@ import {
   createStyles,
 } from "@mantine/core";
 import Link from "next/link";
+import CustomLink from "../../utils/CustomLink";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -139,7 +140,7 @@ export default function BlogsPage() {
         //   bg={theme.colors.indigo[4]}
         p='md'
         radius='md'
-        component={Link}
+        component={CustomLink}
         // href={`/blogs/${article.title}`}
         href={{
           pathname: "/blogs/[id]",
