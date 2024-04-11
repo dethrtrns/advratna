@@ -159,7 +159,6 @@ export default function HeaderMiddle() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //TODO: implement universal routing with next routes and sync the active state from there
   //TODO: implement scroll animation with default route scrolling behavior in spa
 
   const items = links.map((link) => (
