@@ -231,7 +231,7 @@ export default function Footer() {
           <Image
             src={`/logo-${
               theme.colorScheme === "dark" ? "color" : "color"
-            }-noBG.svg`}
+              }-noBG.svg`}
             // height='150%'
             width={180}
             height={180}
@@ -239,6 +239,7 @@ export default function Footer() {
               aspectRatio: "1/1",
               borderRadius: "15%",
             }}
+            priority
             alt='Ratna Associates'
             // width='100'
           />

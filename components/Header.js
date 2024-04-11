@@ -214,6 +214,7 @@ export default function HeaderMiddle() {
                 // height='150%'
                 width={100}
                 height={100}
+                priority
                 style={{
                   aspectRatio: "1/1",
                 }}
