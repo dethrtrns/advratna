@@ -156,17 +156,7 @@ export default function HeaderMiddle() {
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
-      onClick={(e) => {
-        if (!link.href && active !== "blogs") {
-          e.preventDefault();
-          document.getElementById(link.link).scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "start",
-          });
-        }
-        setActive(link.link);
-      }}>
+      onClick={() => setActive(link.link)}>
       {link.label}
     </Link>
   ));
@@ -206,6 +196,7 @@ export default function HeaderMiddle() {
                 alignItems: "center",
                 transition: "all 0.2s ease-in-out",
               }}
+              onClick={() => setActive(links[0].link)}
               href={"/"}>
               <Image
                 src={`/logo-${
@@ -218,7 +209,7 @@ export default function HeaderMiddle() {
                 style={{
                   aspectRatio: "1/1",
                 }}
-                alt="Ratna Associates"
+                alt='Ratna Associates'
                 // width='100'
               />
             </Button>
