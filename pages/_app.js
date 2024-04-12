@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
     setColorScheme(newColorScheme);
   };
 
-  console.log("router queries from _app-->", router.query);
+  // console.log("router queries from _app-->", router.query);
   //TODO: add theme to route
   return (
     <>

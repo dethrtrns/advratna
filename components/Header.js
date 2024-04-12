@@ -33,14 +33,17 @@ const links = [
   {
     link: "home",
     label: "Home",
+    href: "/",
   },
   {
     link: "about",
     label: "About Us",
+    href: "/",
   },
   {
     link: "faq",
     label: "FAQ",
+    href: "/",
   },
   {
     link: "blogs",
@@ -50,6 +53,7 @@ const links = [
   {
     link: "contact",
     label: "Contact Us",
+    href: "/",
   },
 ];
 
@@ -162,12 +166,47 @@ export default function HeaderMiddle() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //TODO: implement scroll animation with default route scrolling behavior in spa
+  useEffect(() => {
+    const scrollToActiveLink = (active) => {
+      // Check if the active link corresponds to a section on the page
+      const activeLink = links.find((link) => link.link === active);
+      if (activeLink) {
+        const section = document.getElementById(activeLink.link);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    const handleRouteChangeComplete = () => {
+      scrollToActiveLink(active);
+    };
+
+    // Listen for route change complete event
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    // Cleanup
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+    };
+  }, [active]);
+
+  // const items = links.map((link) => (
+  //   <CustomLink
+  //     key={link.label}
+  //     href={link.href ? link.href : `/#${link.link}`}
+  //     className={cx(classes.link, {
+  //       [classes.linkActive]: active === link.link,
+  //     })}
+  //     onClick={() => setActive(link.link)}>
+  //     {link.label}
+  //   </CustomLink>
+  // ));
 
   const items = links.map((link) => (
     <CustomLink
       key={link.label}
-      href={link.href ? link.href : `/#${link.link}`}
+      href={link.href}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
