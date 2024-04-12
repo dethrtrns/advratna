@@ -21,7 +21,6 @@ import {
   IconBrandGoogle,
   IconCircleLetterJ,
 } from "@tabler/icons";
-// import { MantineLogo } from "@mantine/ds";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { Html } from "next/document";
 import Link from "next/link";
@@ -135,13 +134,13 @@ export default function HeaderMiddle() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
-  // /blogs/[id];
 
   // console.log(router);
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
 
   useEffect(() => {
+    // to handle header/nav bar bg for better UI.
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       if (scrollTop > 100) {
@@ -150,7 +149,7 @@ export default function HeaderMiddle() {
         setScrolled(false);
       }
     };
-
+    // To set proper active link state throughout different routes.
     // extract the first route path eg.- '/#blogs/[id]'.split('/')[1].includes('blogs')
     const firstRoutePath = router.asPath.split("/")[1];
     // set active link state on reloads to the respective link from links array if path contains that link
@@ -158,7 +157,6 @@ export default function HeaderMiddle() {
       firstRoutePath.includes(link.link) ? setActive(link.link) : false
     );
 
-    // router.query.theme
     // console.log(router.query);
 
     window.addEventListener("scroll", handleScroll);
@@ -179,7 +177,7 @@ export default function HeaderMiddle() {
     };
 
     const handleRouteChangeComplete = () => {
-      scrollToActiveLink(active);
+      scrollToActiveLink(active); // pass active link state here to prevent stale scrolling
     };
 
     // Listen for route change complete event
@@ -191,18 +189,8 @@ export default function HeaderMiddle() {
     };
   }, [active]);
 
-  // const items = links.map((link) => (
-  //   <CustomLink
-  //     key={link.label}
-  //     href={link.href ? link.href : `/#${link.link}`}
-  //     className={cx(classes.link, {
-  //       [classes.linkActive]: active === link.link,
-  //     })}
-  //     onClick={() => setActive(link.link)}>
-  //     {link.label}
-  //   </CustomLink>
-  // ));
 
+  // preping links for navigation
   const items = links.map((link) => (
     <CustomLink
       key={link.label}
@@ -256,7 +244,6 @@ export default function HeaderMiddle() {
                 src={`/logo-${
                   theme.colorScheme === "dark" ? "white" : "black"
                 }-noBG.svg`}
-                // height='150%'
                 width={100}
                 height={100}
                 priority
@@ -264,7 +251,6 @@ export default function HeaderMiddle() {
                   aspectRatio: "1/1",
                 }}
                 alt='Ratna Associates'
-                // width='100'
               />
             </Button>
             {/* <Burger TODO: add nav menu for mobile devices
@@ -283,17 +269,11 @@ export default function HeaderMiddle() {
             </Group>
           </Flex>
 
-          {/* <Text
-          variant='gradient'
-          size={18}
-          color={theme.primaryColor}
-          component='h1'>
-          Advocate Ratna Singh
-        </Text> */}
+          
 
           <Flex>
             <Group
-              spacing={0}
+              spacing={1}
               className={classes.social}
               position='right'
               noWrap>
@@ -306,7 +286,6 @@ export default function HeaderMiddle() {
                 className={classes.iconBack}
                 size='lg'>
                 <IconBrandInstagram
-                  // href='https://www.google.com/search?q=ratna+singh+advocate&rlz=1C1CHBF_enIN964IN964&oq=ratna+singh+advocate&aqs=chrome..69i57j0i390.6271j0j7&sourceid=chrome&ie=UTF-8'
                   size={18}
                   color={
                     theme.colorScheme === "dark"
