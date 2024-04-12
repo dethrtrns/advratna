@@ -9,7 +9,6 @@ const CustomLink = ({ href, children, ...rest }) => {
   const query = useMemo(() => ({ ...router.query }), [router.query]);
 
   // Ensure href is a string or object
-  //
   if (typeof href === "string") {
     // Construct the final href with the appropriate prefix
     let finalHref = href.startsWith("#") ? href : `/${href}`;
