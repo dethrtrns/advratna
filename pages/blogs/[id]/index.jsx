@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 export default function BlogPage() {
   const router = useRouter();
-  console.log(router.query); // .query and .aspath
+  // console.log(router.query); // .query and .aspath
   return (
     <Flex
       w={"100vw"}
@@ -12,7 +12,7 @@ export default function BlogPage() {
       justify='center'
       align='center'>
       <Text
-        fz={35}
+        fz={36}
         variant='gradient'>
         {router.query.id}
       </Text>

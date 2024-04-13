@@ -21,23 +21,28 @@ import {
   IconBrandGoogle,
   IconCircleLetterJ,
 } from "@tabler/icons";
-// import { MantineLogo } from "@mantine/ds";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { Html } from "next/document";
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import CustomLink from "../utils/CustomLink";
 
 const links = [
   {
     link: "home",
     label: "Home",
+    href: "/",
   },
   {
     link: "about",
     label: "About Us",
+    href: "/",
   },
   {
     link: "faq",
     label: "FAQ",
+    href: "/",
   },
   {
     link: "blogs",
@@ -47,6 +52,7 @@ const links = [
   {
     link: "contact",
     label: "Contact Us",
+    href: "/",
   },
 ];
 
@@ -124,13 +130,17 @@ const useStyles = createStyles((theme) => ({
 
 export default function HeaderMiddle() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
+
+  // console.log(router);
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
 
   useEffect(() => {
+    // to handle header/nav bar bg for better UI.
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       if (scrollTop > 100) {
@@ -139,35 +149,58 @@ export default function HeaderMiddle() {
         setScrolled(false);
       }
     };
+    // To set proper active link state throughout different routes.
+    // extract the first route path eg.- '/#blogs/[id]'.split('/')[1].includes('blogs')
+    const firstRoutePath = router.asPath.split("/")[1];
+    // set active link state on reloads to the respective link from links array if path contains that link
+    links.forEach((link) =>
+      firstRoutePath.includes(link.link) ? setActive(link.link) : false
+    );
+
+    // console.log(router.query);
 
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //TODO: implement universal routing with next routes and sync the active state from there
-  //TODO: implement scroll animation with default route scrolling behavior in spa
+  useEffect(() => {
+    const scrollToActiveLink = (active) => {
+      // Check if the active link corresponds to a section on the page
+      const activeLink = links.find((link) => link.link === active);
+      if (activeLink) {
+        const section = document.getElementById(activeLink.link);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
 
+    const handleRouteChangeComplete = () => {
+      scrollToActiveLink(active); // pass active link state here to prevent stale scrolling
+    };
+
+    // Listen for route change complete event
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    // Cleanup
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+    };
+  }, [active]);
+
+
+  // preping links for navigation
   const items = links.map((link) => (
-    <Link
+    <CustomLink
       key={link.label}
-      href={link.href ? link.href : `/#${link.link}`}
+      href={link.href}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
-      onClick={(e) => {
-        if (!link.href && active !== "blogs") {
-          e.preventDefault();
-          document.getElementById(link.link).scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "start",
-          });
-        }
-        setActive(link.link);
-      }}>
+      onClick={() => setActive(link.link)}>
       {link.label}
-    </Link>
+    </CustomLink>
   ));
 
   return (
@@ -205,16 +238,19 @@ export default function HeaderMiddle() {
                 alignItems: "center",
                 transition: "all 0.2s ease-in-out",
               }}
+              onClick={() => setActive(links[0].link)}
               href={"/"}>
-              <img
-                src={`./logo-${
+              <Image
+                src={`/logo-${
                   theme.colorScheme === "dark" ? "white" : "black"
                 }-noBG.svg`}
-                height='150%'
+                width={100}
+                height={100}
+                priority
                 style={{
                   aspectRatio: "1/1",
                 }}
-                // width='100'
+                alt='Ratna Associates'
               />
             </Button>
             {/* <Burger TODO: add nav menu for mobile devices
@@ -233,17 +269,11 @@ export default function HeaderMiddle() {
             </Group>
           </Flex>
 
-          {/* <Text
-          variant='gradient'
-          size={18}
-          color={theme.primaryColor}
-          component='h1'>
-          Advocate Ratna Singh
-        </Text> */}
+          
 
           <Flex>
             <Group
-              spacing={0}
+              spacing={1}
               className={classes.social}
               position='right'
               noWrap>
@@ -256,7 +286,6 @@ export default function HeaderMiddle() {
                 className={classes.iconBack}
                 size='lg'>
                 <IconBrandInstagram
-                  // href='https://www.google.com/search?q=ratna+singh+advocate&rlz=1C1CHBF_enIN964IN964&oq=ratna+singh+advocate&aqs=chrome..69i57j0i390.6271j0j7&sourceid=chrome&ie=UTF-8'
                   size={18}
                   color={
                     theme.colorScheme === "dark"

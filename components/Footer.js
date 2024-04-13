@@ -12,7 +12,8 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons";
-import Link from "next/link";
+import Image from "next/image";
+import CustomLink from "../utils/CustomLink";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -196,7 +197,7 @@ export default function Footer() {
 
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
-      <Link
+      <CustomLink
         key={index}
         className={classes.link}
         // component='a'
@@ -204,7 +205,7 @@ export default function Footer() {
         // onClick={(event) => event.preventDefault()}
       >
         {link.label}
-      </Link>
+      </CustomLink>
     ));
 
     return (
@@ -227,17 +228,19 @@ export default function Footer() {
       className={classes.footer}>
       <Flex className={classes.inner}>
         <div className={classes.logo}>
-          <img
-            src={`./logo-${
+          <Image
+            src={`/logo-${
               theme.colorScheme === "dark" ? "color" : "color"
-            }-noBG.svg`}
-            // height='130%'
-            width='150%'
+              }-noBG.svg`}
+            // height='150%'
+            width={180}
+            height={180}
             style={{
-              // backgroundColor: "black",
               aspectRatio: "1/1",
               borderRadius: "15%",
             }}
+            priority
+            alt='Ratna Associates'
             // width='100'
           />
           <Text
